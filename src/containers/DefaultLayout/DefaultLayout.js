@@ -24,7 +24,7 @@ import DefaultHeader from './DefaultHeader';
 const styles = {
    appBar: {
     backgroundColor:"red"
-   }
+   },
 }
 class DefaultLayout extends Component {
   render() {
@@ -56,9 +56,9 @@ class DefaultLayout extends Component {
               </Switch>
             </Container>
           </main>
-          <AppAside fixed>
+          {/* <AppAside fixed >
             <DefaultAside />
-          </AppAside>
+          </AppAside> */}
         </div>
         <AppFooter>
           <DefaultFooter />
