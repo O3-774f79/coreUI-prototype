@@ -11,7 +11,15 @@ const propTypes = {
   children: PropTypes.node,
 };
 const defaultProps = {};
-
+const styles = {
+   tabLogo:{
+    backgroundColor: "grey",
+    width: 200
+   },
+   imgLogo:{
+    width: 190, height: 130, alt: 'Leader Planet',cursor: "pointer"
+   }
+}
 class DefaultHeader extends Component {
   render() {
 
@@ -25,12 +33,13 @@ class DefaultHeader extends Component {
           // full={{ src: logo, width: 89, height: 25, alt: 'CoreUI Logo'}}
           // minimized={{ src: sygnet, width: 30, height: 30, alt: 'CoreUI Logo' }}
           // onClick={this.onHandleClick}
+          style={styles.tabLogo}
         >
-         <NavLink href="/"><img src={logo} style={{width: 190, height: 130, alt: 'Leader Planet',cursor: "pointer"}}/></NavLink>
+         <NavLink href="/"><img src={logo} style={styles.imgLogo}/></NavLink>
         </AppNavbarBrand>
         <AppSidebarToggler className="d-md-down-none" display="lg" />
 
-        <Nav className="d-md-down-none" navbar>
+        {/* <Nav className="d-md-down-none" navbar>
           <NavItem className="px-3">
             <NavLink href="/">Dashboard</NavLink>
           </NavItem>
@@ -40,8 +49,8 @@ class DefaultHeader extends Component {
           <NavItem className="px-3">
             <NavLink href="#">Settings</NavLink>
           </NavItem>
-        </Nav>
-        <Nav className="ml-auto" navbar>
+        </Nav> */}
+        <Nav className="ml-auto" navbar >
           <NavItem className="d-md-down-none">
             <NavLink href="#"><i className="icon-bell"></i><Badge pill color="danger">5</Badge></NavLink>
           </NavItem>
