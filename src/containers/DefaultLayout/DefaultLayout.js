@@ -21,12 +21,16 @@ import routes from '../../routes';
 import DefaultAside from './DefaultAside';
 import DefaultFooter from './DefaultFooter';
 import DefaultHeader from './DefaultHeader';
-
+const styles = {
+   appBar: {
+    backgroundColor:"red"
+   }
+}
 class DefaultLayout extends Component {
   render() {
     return (
       <div className="app">
-        <AppHeader fixed>
+        <AppHeader fixed style={styles.appBar}>
           <DefaultHeader />
         </AppHeader>
         <div className="app-body">
