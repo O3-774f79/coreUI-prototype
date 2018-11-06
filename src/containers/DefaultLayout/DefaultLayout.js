@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Container } from 'reactstrap';
-
+import {_findIndexOf,_findIndex } from 'lodash'
 import {
   AppAside,
   AppBreadcrumb,
