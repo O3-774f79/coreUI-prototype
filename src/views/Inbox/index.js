@@ -3,6 +3,8 @@ import React, {PureComponent} from 'react'
 import Button from 'antd/lib/button';
 // import { Collapse } from 'antd';
 import GTable from '../../components/Table/'
+import CAform from '../../components/CAform/'
+import FormDataControl from '../../components/CAform/form-formData.js'
 const columns = [{
   title: 'Name',
   dataIndex: 'name',
@@ -40,7 +42,9 @@ export default class inbox extends PureComponent {
  render(){
       return(
         <div>
-        <GTable columns={columns} data={data} />       
+              {/* <CAform /> */}
+              <FormDataControl />
+              <GTable columns={columns} data={data} />       
         </div>
       )
  }

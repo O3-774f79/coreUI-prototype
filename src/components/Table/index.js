@@ -14,8 +14,6 @@ export default class GTable extends PureComponent {
                  columns={columns}
                  dataSource={data}
                  bordered
-                 // title={() => 'Header'}
-                 // footer={() => 'Footer'}
                />
              </div>
                </Panel>
