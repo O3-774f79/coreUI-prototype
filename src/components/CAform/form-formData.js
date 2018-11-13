@@ -22,7 +22,7 @@ export default class FormDataControl extends PureComponent {
         // You can use any AJAX library you like
         axios({
             method: 'post',
-            url: '//jsonplaceholder.typicode.com/posts/',
+            url: 'http://localhost:5000/api/attachment/uploadfile',
             data: formData,
             config: { headers: {'Content-Type': 'multipart/form-data' }}
             })
@@ -46,7 +46,7 @@ export default class FormDataControl extends PureComponent {
       render() {
         const { uploading } = this.state;
         const props = {
-          action: '//jsonplaceholder.typicode.com/posts/',
+          action: 'http://localhost:5000/api/attachment/uploadfile',
           onRemove: (file) => {
             this.setState(({ fileList }) => {
               const index = fileList.indexOf(file);
