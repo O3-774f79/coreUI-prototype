@@ -6,19 +6,22 @@ export default class FormDataControl extends PureComponent {
     state = {
         fileList: [],
         uploading: false,
+        desFile: {name:"moo"}
       }
-    
       handleUpload = () => {
+        const json = JSON.stringify(this.state.desFile)
         const { fileList } = this.state;
         const formData = new FormData();
         fileList.forEach((file) => {
           formData.append('files[]', file);
         });
-    
+        formData.append('data',json)
         this.setState({
           uploading: true,
         });
-        console.log(formData)
+        // console.log(formData)
+        console.log(formData.getAll('files[]'))
+        console.log(formData.getAll('data'))
         // You can use any AJAX library you like
         axios({
             method: 'post',
