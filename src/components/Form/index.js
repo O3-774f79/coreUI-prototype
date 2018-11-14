@@ -175,44 +175,149 @@ class Forms extends Component {
                 <Form action="" method="post" encType="multipart/form-data" className="form-horizontal">
                   <FormGroup row>
                     <Col md="3">
-                      <Label style={{float:"right"}}>วันที่ :</Label>
+                      <Label>วันที่ :</Label>
                     </Col>
                     <Col xs="12" md="9">
                       <p className="form-control-static">{this.state.dailyDate}</p>
                     </Col>
                   </FormGroup>
-                   <FormGroup row className="my-0">
-                  <Col xs="8">
-                    <FormGroup>
-                      <Label htmlFor="city">City</Label>
-                      <Input type="text" id="city" placeholder="Enter your city" />
-                    </FormGroup>
+                <FormGroup row>
+                  <Col md="7">
+                  <FormGroup row>
+                    <Col md="5">
+                      <Label htmlFor="text-input">ผู้ขอเบิก <i style={{color:"red"}}>*</i></Label>
+                    </Col>
+                    <Col xs="12" md="7">
+                      <Input type="text" id="text-input" name="text-input" placeholder="Text" />
+                      <FormText color="muted">ผู้ขอเบิก</FormText>
+                    </Col>
+                  </FormGroup>
                   </Col>
-                  <Col xs="4">
-                    <FormGroup>
-                      <Label htmlFor="postal-code">Postal Code</Label>
-                      <Input type="text" id="postal-code" placeholder="Postal Code" />
-                    </FormGroup>
+                  <Col md="5">
+                  <FormGroup row>
+                    <Col md="3">
+                      <Label htmlFor="text-input">หน่วยงาน</Label>
+                    </Col>
+                    <Col xs="12" md="9">
+                      <Input type="text" id="text-input" name="text-input" placeholder="Text" />
+                      <FormText color="muted">หน่วยงาน</FormText>
+                    </Col>
+                  </FormGroup>
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="7">
+                  <FormGroup row>
+                    <Col md="5">
+                      <Label htmlFor="text-input">บริษัท <i style={{color:"red"}}>*</i></Label>
+                    </Col>
+                    <Col xs="12" md="7">
+                      <Input type="text" id="text-input" name="text-input" placeholder="บริษัท" />
+                      <FormText color="muted">บริษัท</FormText>
+                    </Col>
+                  </FormGroup>
+                  </Col>
+                  <Col md="5">
+                  <FormGroup row>
+                    <Col md="3">
+                      <Label htmlFor="text-input">สาขา</Label>
+                    </Col>
+                    <Col xs="12" md="9">
+                      <Input type="text" id="text-input" name="text-input" placeholder="สาขา" />
+                      <FormText color="muted">สาขา</FormText>
+                    </Col>
+                  </FormGroup>
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="7">
+                  <FormGroup row>
+                    <Col md="5">
+                      <Label htmlFor="text-input">SAP(Fund) <i style={{color:"red"}}>*</i></Label>
+                    </Col>
+                    <Col xs="12" md="7">
+                      <Input type="text" id="text-input" name="text-input" placeholder="ตัวอย่าง" />
+                      <FormText color="muted">ตัวอย่าง </FormText>
+                    </Col>
+                  </FormGroup>
+                  </Col>
+                  <Col md="5">
+                  <FormGroup row>
+                    <Col md="3">
+                      <Label htmlFor="text-input">SAP(IO)</Label>
+                    </Col>
+                    <Col xs="12" md="9">
+                      <Input type="text" id="text-input" name="text-input" placeholder="" />
+                      <FormText color="muted"></FormText>
+                    </Col>
+                  </FormGroup>
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="7">
+                  <FormGroup row>
+                    <Col md="5">
+                      <Label htmlFor="text-input">เลขในบันทึกภายใน <i style={{color:"red"}}>*</i></Label>
+                    </Col>
+                    <Col xs="12" md="7">
+                      <Input type="text" id="text-input" name="text-input" placeholder="ตัวอย่าง" />
+                      <FormText color="muted"> </FormText>
+                    </Col>
+                  </FormGroup>
+                  </Col>
+                  <Col md="5">
+                  <FormGroup row>
+                    <Col md="3">
+                      <Label htmlFor="text-input"></Label>
+                    </Col>
+                    <Col xs="12" md="7">
+                    <FormGroup check inline>
+                        <Input className="form-check-input" type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="option1" />
+                        <Label className="form-check-label" check htmlFor="inline-checkbox1">จองงบประมาณ</Label>
+                      </FormGroup>
+                    </Col>
+                  </FormGroup>
                   </Col>
                 </FormGroup>
                   <FormGroup row>
                     <Col md="3">
-                      <Label htmlFor="text-input">Text Input</Label>
+                      <Label htmlFor="text-input">วัตถุประสงค์<i style={{color:"red"}}>*</i></Label>
                     </Col>
                     <Col xs="12" md="9">
                       <Input type="text" id="text-input" name="text-input" placeholder="Text" />
-                      <FormText color="muted">This is a help text</FormText>
+                      <FormText color="muted">กรุณากรอก</FormText>
                     </Col>
                   </FormGroup>
                   <FormGroup row>
                     <Col md="3">
-                      <Label htmlFor="email-input">Email Input</Label>
+                      <Label htmlFor="email-input">รายละเอียด</Label>
                     </Col>
                     <Col xs="12" md="9">
-                      <Input type="email" id="email-input" name="email-input" placeholder="Enter Email" autoComplete="email"/>
-                      <FormText className="help-block">Please enter your email</FormText>
+                    <Input type="textarea" name="textarea-input" id="textarea-input" rows="9"
+                             placeholder="Content..." />
                     </Col>
                   </FormGroup>
+                  <FormGroup row>
+                  <Col md="7">
+                  <FormGroup row>
+                    <Col md="5">
+                      <Label htmlFor="text-input">จำนวนเงิน<i style={{color:"red"}}>*</i></Label>
+                    </Col>
+                    <Col xs="8" md="5">
+                      <Input type="text" id="text-input" name="text-input" placeholder="ตัวอย่าง" />
+                      <FormText color="muted">กรุณาใส่จำนวนเงิน </FormText>
+                    </Col>
+                  {/* </FormGroup> */}
+                  {/* </Col>
+                  <Col md="5">
+                  <FormGroup row> */}
+                    <Col xs="4" md="2">
+                      <Input type="text" id="text-input" name="text-input" placeholder="" />
+                      <FormText color="muted"></FormText>
+                    </Col>
+                  </FormGroup>
+                  </Col>
+                </FormGroup>
                   <FormGroup row>
                     <Col md="3">
                       <Label htmlFor="password-input">Password</Label>
