@@ -1,15 +1,5 @@
 export default {
   items: [
-    // {
-    //   name: 'Dashboard',
-    //   url: '/dashboard',
-    //   icon: 'icon-speedometer',
-    //   badge: {
-    //     variant: 'info',
-    //     text: 'NEW',
-    //   },
-    // },
-
     {   
       title: true,
       name: 'Theme',
@@ -20,10 +10,21 @@ export default {
       class: ''             // optional class names space delimited list for title item ex: "text-center"
     },
     {
-      name: 'Inbox',
-      url: '/inbox',
+      name:'CA',
       icon: '',
+      children: [
+        {
+          name: 'ตาราง',
+          url: '/ca/table',
+          icon: '',
+        },
+        {
+          name: 'form',
+          url: '/ca/form'
+        }
+      ]
     },
+
     {
       name: 'Colors',
       url: '/theme/colors',

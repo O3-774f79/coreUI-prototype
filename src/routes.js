@@ -10,9 +10,12 @@ function Loading() {
 const Breadcrumbs = Loadable({
   loader: () => import('./views/Base/Breadcrumbs'),
   loading: Loading,
-});
-
-const Inbox = Loadable({
+}); 
+const Form = Loadable({
+  loader:() => import('./views/CA-Form'),
+  loading: Loading
+})
+const Table = Loadable({
    loader: () => import('./views/Inbox'),
    loading: Loading,
 })
@@ -191,7 +194,8 @@ const User = Loadable({
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   { path: '/', exact: true, name: 'Home', component: DefaultLayout },
-  { path: '/inbox',exact: true, name: 'Inbox', component: Inbox },
+  { path: '/ca/table',exact: true, name: 'Table', component: Table },
+  { path: '/ca/form',exact: true, name: 'Form', component: Form },  
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },

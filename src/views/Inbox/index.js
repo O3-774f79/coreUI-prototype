@@ -1,10 +1,8 @@
 import React, {PureComponent} from 'react'
-// import { Table } from 'antd';
 import Button from 'antd/lib/button';
-// import { Collapse } from 'antd';
-import GTable from '../../components/Table/'
-import CAform from '../../components/CAform/'
-import FormDataControl from '../../components/CAform/form-formData.js'
+import BasicTable from '../../components/Table/BasicTable'
+import FormUpload from '../../components/Upload/'
+import Data from './data'
 const columns = [{
   title: 'Name',
   dataIndex: 'name',
@@ -21,30 +19,13 @@ const columns = [{
   dataIndex: 'action',
   render: () =><span><Button>delete</Button><Button>delete</Button></span>,
 }];
-const data = [{
-  key: '1',
-  name: 'John Brown',
-  money: '￥300,000.00',
-  address: 'New York No. 1 Lake Park',
-}, {
-  key: '2',
-  name: 'Jim Green',
-  money: '￥1,256,000.00',
-  address: 'London No. 1 Lake Park',
-}, {
-  key: '3',
-  name: 'Joe Black',
-  money: '￥120,000.00',
-  address: 'Sidney No. 1 Lake Park',
-}];
 
 export default class inbox extends PureComponent {
  render(){
       return(
         <div>
-              {/* <CAform /> */}
-              <FormDataControl />
-              <GTable columns={columns} data={data} />       
+              <BasicTable columns={columns} data={Data.Data} headerPanel="ตาราง"/>      
+              <FormUpload  headerPanel="เอกสาร"/> 
         </div>
       )
  }

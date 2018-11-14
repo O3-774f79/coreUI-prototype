@@ -1,12 +1,12 @@
 import React,{PureComponent} from 'react'
 import { Upload, Button, Icon, message } from 'antd';
 import axios from 'axios';
-
 export default class FormDataControl extends PureComponent {
     state = {
         fileList: [],
         uploading: false,
-        desFile: {name:"moo"}
+        desFile: 
+              {name:"moo",last:"test"},
       }
       handleUpload = () => {
         const json = JSON.stringify(this.state.desFile)
@@ -19,7 +19,6 @@ export default class FormDataControl extends PureComponent {
         this.setState({
           uploading: true,
         });
-        // console.log(formData)
         console.log(formData.getAll('files[]'))
         console.log(formData.getAll('data'))
         // You can use any AJAX library you like
@@ -44,8 +43,7 @@ export default class FormDataControl extends PureComponent {
                   });
                   message.error('upload failed.');
             });
-      }
-    
+      }  
       render() {
         const { uploading } = this.state;
         const props = {
@@ -68,14 +66,13 @@ export default class FormDataControl extends PureComponent {
           },
           fileList: this.state.fileList,
         };
-    
          return(
-            <React.Fragment>
+            <div>
               <Upload {...props}>
                 <Button>
                     <Icon type="upload" /> Select File
                 </Button>
-              </Upload>
+                </Upload>
                 <Button
                     className="upload-demo-start"
                     type="primary"
@@ -85,7 +82,7 @@ export default class FormDataControl extends PureComponent {
                     >
                     {uploading ? 'Uploading' : 'Start Upload' }
                 </Button>
-            </React.Fragment>
+            </div>
          )
      }
 }
