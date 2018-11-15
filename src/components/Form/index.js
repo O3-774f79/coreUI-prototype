@@ -43,9 +43,9 @@ _handleChangeBranch = e =>{
         <Row>
           <Col xs="12" md="12">
             <Card>
-              <CardHeader>
+              {/* <CardHeader>
                 <strong>CA Form</strong>
-              </CardHeader>
+              </CardHeader> */}
               <CardBody>
                 <Form encType="multipart/form-data" className="form-horizontal">
                   <FormGroup row>
