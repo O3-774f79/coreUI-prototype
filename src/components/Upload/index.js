@@ -13,7 +13,7 @@ export default class FormDataControl extends PureComponent {
         const { fileList } = this.state;
         const formData = new FormData();
         fileList.forEach((file) => {
-          formData.append('files[]', file);
+          formData.append('files[]', file,"testNAJA|123.pdf");
         });
         formData.append('data',json)
         this.setState({
@@ -24,7 +24,7 @@ export default class FormDataControl extends PureComponent {
         // You can use any AJAX library you like
         axios({
             method: 'post',
-            url: 'http://localhost:5000/api/attachment/uploadfile',
+            url: 'http://localhost:5000/api/ca/save',
             data: formData,
             config: { headers: {'Content-Type': 'multipart/form-data' }}
             })

@@ -2,16 +2,33 @@ import React,{PureComponent} from 'react'
 import MajorPanel from '../../components/Panel/'
 import CAForm from '../../components/Form'
 import Upload from '../../components/Upload'
+import {
+     Button,
+     Card,
+     CardBody,
+     CardFooter,
+     CardHeader,
+     Col,
+     Form,
+     FormGroup,
+     FormText,
+     Input,
+     Label,
+     Row,
+   } from 'reactstrap';
 export default class FormData extends PureComponent {
      render(){
           return(
             <div>
-                <MajorPanel>
+                 <h1> CA</h1>
+                <MajorPanel headerPanel="CA Form">
                     <CAForm />
                 </MajorPanel>
-                <MajorPanel>
+                <MajorPanel headerPanel ="เอกสาร">
                     <Upload/>
                 </MajorPanel>
+                <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>
+                <Button type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
             </div>
           )
      }
