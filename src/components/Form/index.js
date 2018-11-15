@@ -169,13 +169,13 @@ _handleChangeBranch = e =>{
                       <Label htmlFor="date-input">ผู้รับเงิน</Label>
                     </Col>
                     <Col xs="12" md="4">
-                      <Input type="text" id="date-input" name="date-input" placeholder="ผู้รับเงิน" />
+                      <Input type="text" id="date-input" name="date-input" placeholder="ผู้รับเงิน" disabled/>
                     </Col>
                     <Col md="2">
                       <Label htmlFor="date-input">ชื่อผู้รับเงิน</Label>
                     </Col>
                     <Col xs="12" md="4">
-                      <Input type="text" id="date-input" name="date-input" placeholder="ชื่อผู้รับเงิน" />
+                      <Input type="text" id="date-input" name="date-input" placeholder="ชื่อผู้รับเงิน"  disabled/>
                     </Col>
                   </FormGroup>
                   <FormGroup row>
