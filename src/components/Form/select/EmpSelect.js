@@ -8,7 +8,7 @@ export default class EmpSelect extends Component {
     isLoading: true,
     isRtl: false,
     isSearchable: true,
-    selectedOption: null,
+    selectedOption: this.props.defaultBasicSelectValue,
     data:[]
   };
   componentDidMount(){

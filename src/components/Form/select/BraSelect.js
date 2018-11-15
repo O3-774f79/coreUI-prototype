@@ -8,7 +8,7 @@ export default class BraSelect extends Component {
     isLoading: false,
     isRtl: false,
     isSearchable: true,
-    selectedOption: null,
+    selectedOption: this.props.defaultBasicSelectValue,
     data:[]
   };
   componentDidMount(){
