@@ -1,18 +1,36 @@
 import React, { Component, Fragment } from 'react';
 
 import Select from 'react-select';
-export default class EmpSelect extends Component {
+export default class CompSelect extends Component {
   state = {
-    isClearable: true,
+    isClearable: false,
     isDisabled: false,
     isLoading: false,
     isRtl: false,
     isSearchable: true,
-    selectedOption: null
+    selectedOption: null,
+    data:[]
   };
+  componentDidMount(){
+    this.setState({data:[
+      { value: 'ocean', label: 'Ocean'},
+      { value: 'blue', label: 'Blue'},
+      { value: 'purple', label: 'Purple'},
+      { value: 'red', label: 'Red'},
+      { value: 'orange', label: 'Orange'},
+      { value: 'yellow', label: 'Yellow' },
+      { value: 'green', label: 'Green' },
+      { value: 'forest', label: 'Forest'},
+      { value: 'slate', label: 'Slate'},
+      { value: 'silver', label: 'Silver' },
+      ],
+      isLoading: false
+    })
+  }
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
     const {selectValue}= this.props
+    // console.log(`Option selected:`, selectedOption.value);
     selectValue(selectedOption);
   }
   render() {
@@ -20,7 +38,8 @@ export default class EmpSelect extends Component {
       isClearable,
       isSearchable,
       isDisabled,
-      selectedOption 
+      selectedOption,
+      data
     } = this.state;
     return (
       <Fragment>
@@ -34,7 +53,7 @@ export default class EmpSelect extends Component {
           isClearable={isClearable}
           isSearchable={isSearchable}
           name="color"
-          options={this.props.data}
+          options={data}
           onChange={this.handleChange}
         />
       </Fragment>

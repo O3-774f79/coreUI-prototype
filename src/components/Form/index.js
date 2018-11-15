@@ -13,26 +13,11 @@ import {
   Label,
   Row,
 } from 'reactstrap';
-import EmpSelect from './EmpSelect'
-import CompSelect from './CompSelect'
-import BraSelect from './BraSelect'
-const dataExam = [
-{ value: 'ocean', label: 'Ocean'},
-{ value: 'blue', label: 'Blue'},
-{ value: 'purple', label: 'Purple'},
-{ value: 'red', label: 'Red'},
-{ value: 'orange', label: 'Orange'},
-{ value: 'yellow', label: 'Yellow' },
-{ value: 'green', label: 'Green' },
-{ value: 'forest', label: 'Forest'},
-{ value: 'slate', label: 'Slate'},
-{ value: 'silver', label: 'Silver' },
-]
+import EmpSelect from './select/EmpSelect'
+import CompSelect from './select/CompSelect'
+import BraSelect from './select/BraSelect'
 class Forms extends Component {
   state = {
-    collapse: true,
-    fadeIn: true,
-    timeout: 300,
     dailyDate: '',
     userInit: [{value:'ทดสอบ',label:'นาย ทดสอบ'}],
   };
@@ -52,7 +37,7 @@ _handleChangeBranch = e =>{
    console.log(e.value)
 }
   render() {
-    const {userInit} = this.state
+    const {userInit,dailyDate} = this.state
     return (
       <div className="animated fadeIn">
         <Row>
@@ -68,7 +53,7 @@ _handleChangeBranch = e =>{
                       <Label>วันที่ :</Label>
                     </Col>
                     <Col xs="12" md="4">
-                      <p className="form-control-static">{this.state.dailyDate}</p>
+                      <strong><p className="form-control-static">{dailyDate}</p></strong>
                     </Col>
                   </FormGroup>
                   <FormGroup row>
@@ -76,7 +61,7 @@ _handleChangeBranch = e =>{
                       <Label>ผู้ขอเบิก :</Label>
                     </Col>
                     <Col xs="12" md="4">
-                    <EmpSelect defaultBasicSelectValue={userInit} data={dataExam} selectValue={this._handleChangeEmp} loading={false}/>
+                    <EmpSelect defaultBasicSelectValue={userInit}  selectValue={this._handleChangeEmp} loading={false}/>
                     <FormText color="muted">ผู้ขอเบิก</FormText>
                     </Col>
                     <Col md="2">
@@ -92,14 +77,14 @@ _handleChangeBranch = e =>{
                     <Label>บริษัท :</Label>
                     </Col>
                     <Col xs="12" md="4">
-                    <CompSelect defaultBasicSelectValue={userInit} data={dataExam} selectValue={this._handleChangeComp} loading={false}/>
+                    <CompSelect defaultBasicSelectValue={userInit} selectValue={this._handleChangeComp} loading={false}/>
                     <FormText color="muted">บริษัท</FormText>
                     </Col>
                     <Col md="2">
                       <Label>สาขา :</Label>
                     </Col>
                     <Col xs="12" md="4">
-                    <BraSelect defaultBasicSelectValue={userInit} data={dataExam} selectValue={this._handleChangeBranch} loading={false}/>
+                    <BraSelect defaultBasicSelectValue={userInit}  selectValue={this._handleChangeBranch} loading={false}/>
                   </Col>
                 </FormGroup>
                 <FormGroup row>
