@@ -5,29 +5,39 @@ export default class FormDataControl extends PureComponent {
     state = {
         fileList: [],
         uploading: false,
-        desFile: 
-              {name:"moo",last:"test"},
+        desFile:[],
+        dataForm: {
+           firstName: "moo",
+           lastName: "555",
+        }
       }
       handleUpload = () => {
-        const json = JSON.stringify(this.state.desFile)
-        const { fileList } = this.state;
+        const { fileList,desFile,dataForm } = this.state;
         const formData = new FormData();
-        fileList.forEach((file) => {
-          formData.append('files[]', file);
-        });
-        formData.append('data',json)
+        const d = new Date();
+        const datePresent = d.getDate()+""+(d.getMonth()+1)+""+d.getFullYear()+""+(d.getHours()+1)+""+(d.getMinutes()+1)+""+(d.getSeconds()+1)+""+(d.getMilliseconds()+1)
+          fileList.map(fileName=> {
+            const fileNameUse = datePresent+"|"+fileName.name
+            console.log("fileNameUse",fileNameUse)
+            formData.append('filesUpload', fileName, fileNameUse);
+            desFile.push({name:fileNameUse})
+          })  
+          const StringdesFile = JSON.stringify(desFile)
+          const StringdataForm = JSON.stringify(dataForm)
+          formData.append('dataFile',StringdesFile)
+          formData.append('dataForm',StringdataForm)
+          
         this.setState({
           uploading: true,
         });
-        console.log(formData.getAll('files[]'))
-        console.log(formData.getAll('data'))
-        console.log("11/16/2018")
+        console.log("getAll",formData.getAll('filesUpload'))
+        console.log("getAllDataFile",formData.getAll('dataFile'))
+        console.log("getAllDataForm",formData.getAll('dataForm'))
         // You can use any AJAX library you like
         axios({
             method: 'post',
             url: 'http://localhost:5000/api/ca/save',
-            data: formData,
-            config: { headers: {'Content-Type': 'multipart/form-data' }}
+            data: {formData,data:{test:"testNaJa"}},
             })
             .then(response => {
                 //handle success
@@ -48,7 +58,7 @@ export default class FormDataControl extends PureComponent {
       render() {
         const { uploading } = this.state;
         const props = {
-          action: 'http://localhost:5000/api/attachment/uploadfile',
+          action: 'http://localhost:5000/api/ca/save',
           onRemove: (file) => {
             this.setState(({ fileList }) => {
               const index = fileList.indexOf(file);
@@ -58,6 +68,9 @@ export default class FormDataControl extends PureComponent {
                 fileList: newFileList,
               };
             });
+          },
+          onChange: info => {
+            console.log("info"+JSON.stringify(info.file))
           },
           beforeUpload: file => {
             this.setState(({ fileList }) => ({

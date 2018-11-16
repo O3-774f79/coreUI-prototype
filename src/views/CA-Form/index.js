@@ -1,20 +1,10 @@
 import React,{PureComponent} from 'react'
 import MajorPanel from '../../components/Panel/'
 import CAForm from '../../components/Form'
+// import Upload from '../../components/Upload/UploadTest.js'
 import Upload from '../../components/Upload'
 import {
      Button,
-     Card,
-     CardBody,
-     CardFooter,
-     CardHeader,
-     Col,
-     Form,
-     FormGroup,
-     FormText,
-     Input,
-     Label,
-     Row,
    } from 'reactstrap';
 export default class FormData extends PureComponent {
      render(){
