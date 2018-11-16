@@ -9,6 +9,8 @@ package-lock.json
 
 # production
 /build
+ 
+build.rar
 
 # misc
 .DS_Store

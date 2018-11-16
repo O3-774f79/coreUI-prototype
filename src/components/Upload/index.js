@@ -13,7 +13,7 @@ export default class FormDataControl extends PureComponent {
         const { fileList } = this.state;
         const formData = new FormData();
         fileList.forEach((file) => {
-          formData.append('files[]', file,"testNAJA|123.pdf");
+          formData.append('files[]', file);
         });
         formData.append('data',json)
         this.setState({
@@ -21,6 +21,7 @@ export default class FormDataControl extends PureComponent {
         });
         console.log(formData.getAll('files[]'))
         console.log(formData.getAll('data'))
+        console.log("11/16/2018")
         // You can use any AJAX library you like
         axios({
             method: 'post',
