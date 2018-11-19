@@ -37,7 +37,7 @@ export default class FormDataControl extends PureComponent {
         axios({
             method: 'post',
             url: 'http://localhost:5000/api/ca/save',
-            data: {formData,data:{test:"testNaJa"}},
+            data: formData,
             })
             .then(response => {
                 //handle success
