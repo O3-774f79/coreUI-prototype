@@ -30,7 +30,6 @@ export default class BraSelect extends Component {
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
     const {selectValue}= this.props
-    // console.log(`Option selected:`, selectedOption.value);
     selectValue(selectedOption);
   }
   render() {

@@ -28,13 +28,13 @@ class Forms extends Component {
   }
 _handleChangeEmp = e => {
   //data จาก dropdowlist
-  console.log(e.value)
+  console.log("emp ->>"+e.value)
 }
 _handleChangeComp = e => {
-   console.log(e.value)
+   console.log("comp ->>"+e.value)
 }
 _handleChangeBranch = e =>{
-   console.log(e.value)
+   console.log("branch ->>"+e.value)
 }
   render() {
     const {userInit,dailyDate} = this.state

@@ -4,40 +4,49 @@ import axios from 'axios';
 export default class FormDataControl extends PureComponent {
     state = {
         fileList: [],
+        testFileList:[],
         uploading: false,
+        presentDate: "",
         desFile:[],
         dataForm: {
            firstName: "moo",
            lastName: "555",
-        }
+        },
+        fileUpload: []
       }
-      handleUpload = () => {
-        const { fileList,desFile,dataForm } = this.state;
-        const formData = new FormData();
+      componentWillMount(){
         const d = new Date();
-        const datePresent = d.getDate()+""+(d.getMonth()+1)+""+d.getFullYear()+""+(d.getHours()+1)+""+(d.getMinutes()+1)+""+(d.getSeconds()+1)+""+(d.getMilliseconds()+1)
-          fileList.map(fileName=> {
-            const fileNameUse = datePresent+"|"+fileName.name
-            console.log("fileNameUse",fileNameUse)
-            formData.append('filesUpload', fileName, fileNameUse);
-            desFile.push({name:fileNameUse})
+        const datePresent =  d.getDate()+""+(d.getMonth()+1)+""+d.getFullYear()+""+(d.getHours()+1)+""+(d.getMinutes()+1)+""+(d.getSeconds()+1)+""+(d.getMilliseconds()+1)
+        this.setState({presentDate: datePresent})
+      }
+      //todo
+      //สั่ง upload จาก component ข้างนอก
+      handleUpload =  () => {
+        const { fileList,testFileList,desFile,dataForm,presentDate } = this.state
+        console.log("fileList"+fileList)
+        console.log("testFileList"+ testFileList)
+        const formData = new FormData();
+          fileList.map( fileName=> {
+            const fileNameUse =  presentDate+"|"+fileName.name
+             desFile.push({name:fileNameUse})
           })  
           const StringdesFile = JSON.stringify(desFile)
-          const StringdataForm = JSON.stringify(dataForm)
+          const StringdataForm =  JSON.stringify(dataForm)
           formData.append('dataFile',StringdesFile)
+          console.log("getAllDataFile",formData.getAll('dataFile'))
           formData.append('dataForm',StringdataForm)
-          
         this.setState({
           uploading: true,
         });
-        console.log("getAll",formData.getAll('filesUpload'))
-        console.log("getAllDataFile",formData.getAll('dataFile'))
-        console.log("getAllDataForm",formData.getAll('dataForm'))
+        // console.log("getAllDataForm",formData.getAll('dataForm'))
         // You can use any AJAX library you like
         axios({
             method: 'post',
             url: 'http://localhost:5000/api/ca/save',
             data: formData,
+            onUploadProgress: progressEvent => {
+              console.log(progressEvent.loaded / progressEvent.total)
+            }
             })
             .then(response => {
                 //handle success
@@ -69,16 +78,20 @@ export default class FormDataControl extends PureComponent {
               };
             });
           },
-          onChange: info => {
-            console.log("info"+JSON.stringify(info.file))
-          },
+          // onChange: ({fileList })=> {
+          //   ({ fileList }) => this.setState({ testFileList })
+          // },
+          // onChange: info => {
+          //   console.log("info"+JSON.stringify(info))
+          //   console.log(this.state.fileList)
+          // },
           beforeUpload: file => {
             this.setState(({ fileList }) => ({
               fileList: [...fileList, file],
             }));
             return false;
           },
-          fileList: this.state.fileList,
+          // fileList: this.state.fileList,
         };
          return(
             <div>

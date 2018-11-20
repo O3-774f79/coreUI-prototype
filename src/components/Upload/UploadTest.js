@@ -26,7 +26,7 @@ function beforeUpload(file) {
   }
   console.log(file.file)
 //   return isJPG && isLt2M;
-    return isJPG
+return isJPG
 
 }
 export default class CAform extends PureComponent {
