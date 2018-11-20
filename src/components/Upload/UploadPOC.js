@@ -1,5 +1,11 @@
 import React,{PureComponent,Fragment} from 'react'
 import { Upload, Button, Icon,message } from 'antd';
+const dummyRequest = ({ file, onSuccess }) => {
+    setTimeout(() => {
+      onSuccess("ok");
+    }, 0);
+  };
+  
 export default class UploadPOC extends PureComponent {
     state = {
         fileList: []
@@ -18,29 +24,22 @@ export default class UploadPOC extends PureComponent {
             message.error(`${info.file.name} file upload failed.`);
           }
         }    
-    //   beforeUpload = (file, fileList) =>{
-    //        console.log("beforupload")
-    //        console.log(file)
-    //        console.log(fileList)
-    //   }
+      beforeUpload = () =>{
+  
+      }
       handleRemove = (file) => {
-          console.log("file",file)
         this.setState(({ fileList }) => {
-            console.log("filelist",fileList)
           const index = fileList.indexOf(file)
-          console.log("index",index)
           const newFileList = fileList.slice()
-          console.log("newFileList",newFileList)
-          console.log("in function",newFileList.splice(index, 1))
           return {
             fileList: newFileList,
           }
         })
-        console.log(this.state.fileList)
+        console.log("filelist",this.state.fileList)
       }
      render(){
         const props = {
-            action: '//jsonplaceholder.typicode.com/posts/',
+            action: 'http://localhost:5000/api/Attachment/Upload',
             onChange: this.handleChange,
             onRemove: this.handleRemove,
             beforeUpload: this.beforeUpload,
@@ -50,7 +49,7 @@ export default class UploadPOC extends PureComponent {
           return(
               <Fragment>
                 {/* <Upload {...props} fileList={this.state.fileList}> */}
-                <Upload {...props}>
+                <Upload {...props} customRequest={dummyRequest}>
                     <Button>
                     <Icon type="upload" /> Upload
                     </Button>
