@@ -7,8 +7,9 @@ export default {
         element: '',        // required valid HTML5 element tag
         attributes: {}        // optional valid JS object with JS API naming ex: { className: "my-class", style: { fontFamily: "Verdana" }, id: "my-id"}
       },
-      class: ''             // optional class names space delimited list for title item ex: "text-center"
+      class: ''
     },
+// optional class names space delimited list for title item ex: "text-center"
     {
       name:'CA',
       icon: '',
@@ -20,8 +21,19 @@ export default {
         },
         {
           name: 'form',
-          url: '/ca/form'
-        }
+          url: '/ca/form',
+          children: [
+            {
+              name: 'ตาราง',
+              url: '/ca/table',
+              icon: '',
+            },
+            {
+              name: 'form',
+              url: '/ca/form'
+            },
+          ]
+        },
       ]
     },
 
