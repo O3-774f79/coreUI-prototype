@@ -4,7 +4,7 @@ import { Collapse } from 'antd';
 const Panel = Collapse.Panel;
 export default class BasicTable extends PureComponent {
      render(){
-        const {columns,data,headerPanel} = this.props
+        const {columns,data,headerPanel,loadTable} = this.props
         return (
             <React.Fragment>
             <Collapse bordered={true} defaultActiveKey={['1']}>
@@ -14,6 +14,7 @@ export default class BasicTable extends PureComponent {
                  columns={columns}
                  dataSource={data}
                  bordered
+                 loading={loadTable}
                />
              </div>
                </Panel>
