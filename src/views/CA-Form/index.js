@@ -2,13 +2,11 @@ import React,{PureComponent} from 'react'
 import MajorPanel from '../../components/Panel/'
 import CAForm from '../../components/Form'
 import UploadBill from '../../components/Upload/UploadPOC.js'
-import { inject, observer } from 'mobx-react';
 import axios from 'axios'
 import {
      Button,
    } from 'reactstrap';
-@inject('formStore')
-@observer
+
 export default class FormData extends PureComponent {
      state = {
            fileUploadList: [],
