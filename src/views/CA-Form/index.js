@@ -8,9 +8,10 @@ import {
    } from 'reactstrap';
 import Table from '../../components/Table/index'
 import {Icon} from 'antd'
+import {observer} from 'mobx-react';
 
 @observer
-export default class FormData extends PureComponent {
+class FormData extends PureComponent {
      state = {
            fileUploadList: [],
            dataSendFile: [],
@@ -107,3 +108,4 @@ export default class FormData extends PureComponent {
           )
      }
 } 
+export default FormData
