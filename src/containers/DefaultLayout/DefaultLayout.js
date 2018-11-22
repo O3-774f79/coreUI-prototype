@@ -14,20 +14,33 @@ import {
   AppSidebarMinimizer,
   AppSidebarNav,
 } from '@coreui/react';
-// sidebar nav config
 import navigation from '../../_nav';
-// routes config
 import routes from '../../routes';
 import DefaultAside from './DefaultAside';
 import DefaultFooter from './DefaultFooter';
 import DefaultHeader from './DefaultHeader';
+import axios from 'axios'
 const styles = {
    appBar: {
-    backgroundColor:"red"
+    // backgroundColor:"red"
    },
 }
 class DefaultLayout extends Component {
+  state = {
+     dataMenu: {items:[]}
+  }
+  async componentDidMount(){
+    try{
+      const dataMenuRes = await axios.get("http://localhost:5000/api/menu")
+      console.log("dataRes ->>",dataMenuRes)
+      await this.setState({dataMenu:{items:dataMenuRes.data}})
+    }
+    catch(e) {
+       console.log("e ->>>",e)
+    }
+  }
   render() {
+    const {dataMenu} = this.state
     return (
       <div className="app">
         <AppHeader fixed style={styles.appBar}>
@@ -37,7 +50,7 @@ class DefaultLayout extends Component {
           <AppSidebar fixed display="lg">
             <AppSidebarHeader />
             <AppSidebarForm />
-            <AppSidebarNav navConfig={navigation} {...this.props} />
+            <AppSidebarNav navConfig={dataMenu} {...this.props}/>
             <AppSidebarFooter />
             <AppSidebarMinimizer />
           </AppSidebar>
