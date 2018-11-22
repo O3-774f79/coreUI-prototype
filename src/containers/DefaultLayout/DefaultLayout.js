@@ -14,12 +14,11 @@ import {
   AppSidebarMinimizer,
   AppSidebarNav,
 } from '@coreui/react';
-import navigation from '../../_nav';
+// import navigation from '../../_nav';
 import routes from '../../routes';
-import DefaultAside from './DefaultAside';
 import DefaultFooter from './DefaultFooter';
 import DefaultHeader from './DefaultHeader';
-import axios from 'axios'
+import Api from '../../api.js'
 const styles = {
    appBar: {
     // backgroundColor:"red"
@@ -31,12 +30,11 @@ class DefaultLayout extends Component {
   }
   async componentDidMount(){
     try{
-      const dataMenuRes = await axios.get("http://localhost:5000/api/menu")
-      console.log("dataRes ->>",dataMenuRes)
+      const dataMenuRes = await Api.get("menu")
       await this.setState({dataMenu:{items:dataMenuRes.data}})
     }
     catch(e) {
-       console.log("e ->>>",e)
+      await console.error("e ->>",e)
     }
   }
   render() {
@@ -69,9 +67,6 @@ class DefaultLayout extends Component {
               </Switch>
             </Container>
           </main>
-          {/* <AppAside fixed >
-            <DefaultAside />
-          </AppAside> */}
         </div>
         <AppFooter>
           <DefaultFooter />

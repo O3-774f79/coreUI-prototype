@@ -8,6 +8,8 @@ import {
    } from 'reactstrap';
 import Table from '../../components/Table/index'
 import {Icon} from 'antd'
+
+@observer
 export default class FormData extends PureComponent {
      state = {
            fileUploadList: [],
@@ -17,7 +19,7 @@ export default class FormData extends PureComponent {
                title: 'Name',
                dataIndex: 'name',
                key: 'name',
-               title: ({ sortOrder, filters }) => <div>header content <span style={{float:"right"}}><Icon type="caret-up"  style={{color:this.state.SortColor}}/><Icon type="caret-down" /></span></div>
+               title: ({ sortOrder, filters }) => <div>header content<span style={{float:"right"}}><Icon type="caret-up"  style={{color:this.state.SortColor}}/><Icon type="caret-down" /></span></div>
              }, {
                title: 'Age',
                dataIndex: 'age',

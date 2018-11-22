@@ -3,10 +3,13 @@ import Button from 'antd/lib/button';
 import BasicTable from '../../components/Table/BasicTable'
 import FormUpload from '../../components/Upload/'
 import Data from './data'
+const _onHandleClick = () =>{
+  console.log("check")
+}
 const columns = [{
   title: 'Name',
   dataIndex: 'name',
-  render: text => <a href="javascript:;">{text}</a>,
+  // render: text => <a href="javascript:;">{text}</a>,
 }, {
   title: 'Cash Assets',
   className: 'column-money',
@@ -17,7 +20,7 @@ const columns = [{
 },{
   title: 'action',
   dataIndex: 'action',
-  render: () =><span><Button>delete</Button><Button>delete</Button></span>,
+  render: () =><span><Button onClick={_onHandleClick}>Edit</Button><Button>delete</Button></span>,
 }];
 
 export default class inbox extends PureComponent {

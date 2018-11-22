@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
-
+import axios from 'axios'
 class Login extends Component {
+  state = {
+     valueUsername: "",
+     valuePassword: ""
+  }
+  _handleUsernemtChange = e => {
+     this.setState({
+       valueUsername: e.target.value
+     })
+  }
+  _handlePasswordChange = e => {
+     this.setState({
+        valuePassword: e.target.value
+     })
+  }
+  _handleSubmit = () => {
+      axios.post("")
+  }
   render() {
     return (
       <div className="app flex-row align-items-center">
@@ -20,7 +37,7 @@ class Login extends Component {
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Username" autoComplete="username" />
+                        <Input type="text" placeholder="Username" autoComplete="username" onChange={this._handleUsernemtChange} value={this.state.valueUsername}/>
                       </InputGroup>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
@@ -28,7 +45,7 @@ class Login extends Component {
                             <i className="icon-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="password" placeholder="Password" autoComplete="current-password" />
+                        <Input type="password" placeholder="Password" autoComplete="current-password" onChange={this._handlePasswordChange}/>
                       </InputGroup>
                       <Row>
                         <Col xs="6">
